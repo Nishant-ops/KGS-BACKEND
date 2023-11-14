@@ -16,20 +16,20 @@ function uuidv4() {
     return v.toString(16);
   });
 }
-const whitelist = [
-  "https://kgs-frontend-git-main-nishants-projects-5bf7042c.vercel.app/",
-];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: false,
-};
-app.use(cors(corsOptions));
+// const whitelist = [
+//   "https://kgs-frontend-git-main-nishants-projects-5bf7042c.vercel.app/",
+// ];
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin || whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   credentials: false,
+// };
+// app.use(cors(corsOptions));
 app.use("/message", MessageRouter);
 app.use("/pinned", PinnedRouter);
 app.use("/show", ShowRouter);
