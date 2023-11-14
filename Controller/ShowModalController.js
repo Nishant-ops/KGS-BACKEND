@@ -78,7 +78,15 @@ module.exports.deleteShowById = async function deleteShowById(req, res) {
 module.exports.createShow = async function createShow(req, res) {
   try {
     console.log(req.body);
-    await ShowModal.create(req.body);
+    const ress = await ShowModal.create(req.body);
+    if (ress != null) {
+      return res.status(200).json({
+        message: "created",
+      });
+    }
+    return res.status(500).json({
+      message: "failed",
+    });
   } catch (err) {
     return res.status(500).json({
       message: err.message,
