@@ -31,7 +31,7 @@ app.use(cors(corsOptions));
 app.use("/message", MessageRouter);
 app.use("/pinned", PinnedRouter);
 app.use("/show", ShowRouter);
-
-app.listen(8080);
+const PORT = process.env.PORT;
+app.listen(PORT || 8080);
 
 console.log("wss up");
