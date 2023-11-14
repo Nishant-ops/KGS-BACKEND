@@ -9,7 +9,6 @@ const app = express();
 const cors = require("cors");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "/public/build")));
 
 function uuidv4() {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
@@ -36,9 +35,6 @@ function uuidv4() {
 app.use("/message", MessageRouter);
 app.use("/pinned", PinnedRouter);
 app.use("/show", ShowRouter);
-app.use("*", (req, res) => {
-  console.log("came here");
-  res.sendFile(path.join(__dirname, "./public/build/index.html"));
-});
+
 const PORT = process.env.PORT;
 app.listen(PORT || 8080);
