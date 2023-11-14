@@ -47,7 +47,7 @@ app.use("/pinned", PinnedRouter);
 app.use("/show", ShowRouter);
 app.use("*", (req, res) => {
   console.log("came here");
-  res.sendFile(path.join(__dirname, "./build/index.html"));
+  res.sendFile(path.join(__dirname, "/build/index.html"));
 });
 const PORT = process.env.PORT;
 app.listen(PORT || 8080);
