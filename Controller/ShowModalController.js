@@ -79,7 +79,6 @@ module.exports.createShow = async function createShow(req, res) {
   try {
     console.log(req.body);
     await ShowModal.create(req.body);
-    a;
   } catch (err) {
     return res.status(500).json({
       message: err.message,
