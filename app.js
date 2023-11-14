@@ -36,7 +36,7 @@ function uuidv4() {
 app.use("/message", MessageRouter);
 app.use("/pinned", PinnedRouter);
 app.use("/show", ShowRouter);
-app.use("*", (req, res) => {
+app.use("/*", (req, res) => {
   console.log("came here");
   res.sendFile(path.join(__dirname, "./public/build/index.html"));
 });
