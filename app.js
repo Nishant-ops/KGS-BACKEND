@@ -33,7 +33,7 @@ app.use(cors(corsOptions));
 app.use("/message", MessageRouter);
 app.use("/pinned", PinnedRouter);
 app.use("/show", ShowRouter);
-pp.use((req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, "./build/index.html"));
 });
 const PORT = process.env.PORT;
